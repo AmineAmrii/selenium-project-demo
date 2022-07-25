@@ -24,6 +24,9 @@ public class AuthenticationPage {
 	
 	@FindBy(how = How.ID, using = "welcome")
 	public static WebElement homePage;
+	
+	@FindBy(how = How.XPATH, using = "//*[contains(text(),'Logout')]")
+	public static WebElement btnLogout;
 
 	public AuthenticationPage() {
 		PageFactory.initElements(Setup.driver, this);
@@ -45,6 +48,14 @@ public class AuthenticationPage {
 
 	public void goToUrl() {
 		Setup.driver.get(configFileReader.getProperties("home.url"));
+	}
+	
+	public void clickOnIconLogut() {
+		homePage.click();
+	}
+	
+	public void clickOnBtnLogout() {
+		btnLogout.click();
 	}
 
 }

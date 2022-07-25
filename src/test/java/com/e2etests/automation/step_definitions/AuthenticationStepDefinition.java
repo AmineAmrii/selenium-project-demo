@@ -16,16 +16,17 @@ public class AuthenticationStepDefinition {
 		this.authenticationPage = new AuthenticationPage();
 	}
 
-	@Given("Je me connecte a l'application OrangeHRM")
+	/* Login */
+	@Given("Je me connecte a l application OrangeHRM")
 	public void jeMeConnecteALApplicationOrangeHRM() {
-		//Setup.driver.get("https://opensource-demo.orangehrmlive.com/");
+		// Setup.driver.get("https://opensource-demo.orangehrmlive.com/");
 		authenticationPage.goToUrl();
 	}
 
 	@When("Je saisie le username {string}")
 	public void jeSaisieLeUsername(String username) {
 		authenticationPage.fillUsername(username);
-		
+
 	}
 
 	@When("Je saisie le mot de passe {string}")
@@ -45,6 +46,18 @@ public class AuthenticationStepDefinition {
 		String message = AuthenticationPage.homePage.getText();
 		Assert.assertTrue(message.contains(msg));
 
+	}
+
+	/* Logout */
+	@When("Je clique sur l icone logout")
+	public void jeCliqueSurLIconeLogout() {
+		authenticationPage.clickOnIconLogut();
+	}
+
+	@When("Je clique sur le bouton logout")
+	public void jeCliqueSurLeBoutonLogout() throws InterruptedException {
+		Thread.sleep(2000);
+		authenticationPage.clickOnBtnLogout();
 	}
 
 }
