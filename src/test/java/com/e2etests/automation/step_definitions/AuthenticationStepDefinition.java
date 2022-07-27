@@ -26,13 +26,11 @@ public class AuthenticationStepDefinition {
 	@When("Je saisie le username {string}")
 	public void jeSaisieLeUsername(String username) {
 		authenticationPage.fillUsername(username);
-
 	}
 
 	@When("Je saisie le mot de passe {string}")
 	public void jeSaisieLeMotDePasse(String password) {
 		authenticationPage.fillPassword(password);
-
 	}
 
 	@When("Je clique sur le bouton login")
