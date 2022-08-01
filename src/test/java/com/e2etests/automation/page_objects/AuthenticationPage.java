@@ -5,10 +5,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import com.e2etests.automation.utils.BasePage;
 import com.e2etests.automation.utils.ConfigFileReader;
 import com.e2etests.automation.utils.Setup;
 
-public class AuthenticationPage {
+public class AuthenticationPage extends BasePage {
 
 	private ConfigFileReader configFileReader;
 
@@ -34,8 +35,10 @@ public class AuthenticationPage {
 	}
 
 	/* Create methods */
+	
 	public void fillUsername(String txt_username) {
 		username.sendKeys(txt_username);
+		log.info("Send Text username to the field username");
 	}
 
 	public void fillPassword(String txt_password) {
@@ -48,6 +51,7 @@ public class AuthenticationPage {
 
 	public void goToUrl() {
 		Setup.driver.get(configFileReader.getProperties("home.url"));
+		log.info("Open browser application");
 	}
 	
 	public void clickOnIconLogut() {
@@ -57,5 +61,7 @@ public class AuthenticationPage {
 	public void clickOnBtnLogout() {
 		btnLogout.click();
 	}
+	
+	
 
 }
